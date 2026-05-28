@@ -84,7 +84,7 @@ public class SleepTrackerAppTest {
         AverageSessionDurationAnalyzer analyzer = new AverageSessionDurationAnalyzer();
         SleepAnalysisResult result = analyzer.apply(sleepingSessions);
 
-        assertEquals("Средняя продолжительность сна: 372,00 минут", result.getDescription());
+        assertEquals("Средняя продолжительность сна: 372.00 минут", result.getDescription());
     }
 
     @Test
@@ -96,7 +96,7 @@ public class SleepTrackerAppTest {
         AverageSessionDurationAnalyzer analyzer = new AverageSessionDurationAnalyzer();
         SleepAnalysisResult result = analyzer.apply(sessions);
 
-        assertEquals("Средняя продолжительность сна: 420,00 минут", result.getDescription());
+        assertEquals("Средняя продолжительность сна: 420.00 минут", result.getDescription());
     }
 
     @Test

@@ -8,11 +8,12 @@ import java.util.function.Function;
 public class MaxSessionDurationAnalyzer
         implements Function<List<SleepingSession>, SleepAnalysisResult> {
 
+    private final String resultDescription = "Максимальная продолжительность сна в минутах: ";
+
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sleepingSessions) {
         Optional<SleepingSession> result = sleepingSessions.stream()
                 .max(Comparator.comparing(SleepingSession::getSleepDurationMinutes));
-        return new SleepAnalysisResult("Максимальная продолжительность сна: "
-                + result.get().getSleepDurationMinutes() + " минут");
+        return new SleepAnalysisResult(resultDescription + result.get().getSleepDurationMinutes());
     }
 }

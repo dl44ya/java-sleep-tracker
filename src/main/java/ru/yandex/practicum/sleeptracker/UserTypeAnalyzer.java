@@ -12,6 +12,8 @@ import java.util.stream.Collectors;
 public class UserTypeAnalyzer
         implements Function<List<SleepingSession>, SleepAnalysisResult> {
 
+    private final String resultDescription = "Вы ";
+
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sleepingSessions) {
         Map<UserType, Integer> userTypeMap = sleepingSessions.stream()
@@ -58,9 +60,9 @@ public class UserTypeAnalyzer
                 .collect(Collectors.toList());
 
         if (frequentTypes.size() > 1) {
-            return new SleepAnalysisResult("Вы " + UserType.PIGEON);
+            return new SleepAnalysisResult(resultDescription + UserType.PIGEON);
         }
 
-        return new SleepAnalysisResult("Вы " + frequentTypes.getFirst());
+        return new SleepAnalysisResult(resultDescription + frequentTypes.getFirst());
     }
 }

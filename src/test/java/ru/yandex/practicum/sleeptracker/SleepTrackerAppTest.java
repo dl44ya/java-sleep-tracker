@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SleepTrackerAppTest {
 
@@ -42,7 +42,7 @@ public class SleepTrackerAppTest {
         MinSessionDurationAnalyzer analyzer = new MinSessionDurationAnalyzer();
         SleepAnalysisResult result = analyzer.apply(sleepingSessions);
 
-        assertEquals("Минимальная продолжительность сна: 60 минут", result.getDescription());
+        assertEquals("Минимальная продолжительность сна в минутах: 60", result.getDescription());
     }
 
     @Test
@@ -55,7 +55,7 @@ public class SleepTrackerAppTest {
         MinSessionDurationAnalyzer analyzer = new MinSessionDurationAnalyzer();
         SleepAnalysisResult result = analyzer.apply(sessions);
 
-        assertEquals("Минимальная продолжительность сна: 420 минут", result.getDescription());
+        assertEquals("Минимальная продолжительность сна в минутах: 420", result.getDescription());
     }
 
     @Test
@@ -63,7 +63,7 @@ public class SleepTrackerAppTest {
         MaxSessionDurationAnalyzer analyzer = new MaxSessionDurationAnalyzer();
         SleepAnalysisResult result = analyzer.apply(sleepingSessions);
 
-        assertEquals("Максимальная продолжительность сна: 540 минут", result.getDescription());
+        assertEquals("Максимальная продолжительность сна в минутах: 540", result.getDescription());
     }
 
     @Test
@@ -76,7 +76,7 @@ public class SleepTrackerAppTest {
         MaxSessionDurationAnalyzer analyzer = new MaxSessionDurationAnalyzer();
         SleepAnalysisResult result = analyzer.apply(sessions);
 
-        assertEquals("Максимальная продолжительность сна: 420 минут", result.getDescription());
+        assertEquals("Максимальная продолжительность сна в минутах: 420", result.getDescription());
     }
 
     @Test
@@ -84,7 +84,7 @@ public class SleepTrackerAppTest {
         AverageSessionDurationAnalyzer analyzer = new AverageSessionDurationAnalyzer();
         SleepAnalysisResult result = analyzer.apply(sleepingSessions);
 
-        assertEquals("Средняя продолжительность сна: 372.00 минут", result.getDescription());
+        assertEquals("Средняя продолжительность сна в минутах: 372.00", result.getDescription());
     }
 
     @Test
@@ -96,7 +96,7 @@ public class SleepTrackerAppTest {
         AverageSessionDurationAnalyzer analyzer = new AverageSessionDurationAnalyzer();
         SleepAnalysisResult result = analyzer.apply(sessions);
 
-        assertEquals("Средняя продолжительность сна: 420.00 минут", result.getDescription());
+        assertEquals("Средняя продолжительность сна в минутах: 420.00", result.getDescription());
     }
 
     @Test

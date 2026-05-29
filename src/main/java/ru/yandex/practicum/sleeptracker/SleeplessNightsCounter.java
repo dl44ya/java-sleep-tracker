@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 public class SleeplessNightsCounter
         implements Function<List<SleepingSession>, SleepAnalysisResult> {
 
+    private final String resultDescription = "Бессонных ночей: ";
+
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sleepingSessions) {
         long nightsTotal = ChronoUnit.DAYS.between(sleepingSessions.getFirst().getStart().toLocalDate(),
@@ -28,6 +30,6 @@ public class SleeplessNightsCounter
                 })
                 .collect(Collectors.toList());
 
-        return new SleepAnalysisResult("Бессонных ночей: " + (nightsTotal - sleepNights.size()));
+        return new SleepAnalysisResult(resultDescription + (nightsTotal - sleepNights.size()));
     }
 }

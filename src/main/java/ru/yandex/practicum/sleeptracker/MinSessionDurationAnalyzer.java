@@ -8,11 +8,12 @@ import java.util.function.Function;
 public class MinSessionDurationAnalyzer
         implements Function<List<SleepingSession>, SleepAnalysisResult> {
 
+    private final String resultDescription = "Минимальная продолжительность сна в минутах: ";
+
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sleepingSessions) {
         Optional<SleepingSession> result = sleepingSessions.stream()
                 .min(Comparator.comparing(SleepingSession::getSleepDurationMinutes));
-        return new SleepAnalysisResult("Минимальная продолжительность сна: "
-                + result.get().getSleepDurationMinutes() + " минут");
+        return new SleepAnalysisResult(resultDescription + result.get().getSleepDurationMinutes());
     }
 }
